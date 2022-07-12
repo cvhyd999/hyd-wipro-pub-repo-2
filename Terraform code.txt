@@ -1,0 +1,334 @@
+=======================
+
+
+Access Key ID:
+AKIAWJNUWDSXLFWL7NHY
+Secret Access Key:
+J+t1yiYcPvsUSO7oDHkKSNdBk7yiPLt2GKzmfWdJ
+
+
+=====================================
+
+EC2:
+
+===================
+Method1:
+
+provider "aws" {
+  region     = "us-west-1"
+  access_key = "AKIAWJNUWDSXLFWL7NHY"
+  secret_key = "J+t1yiYcPvsUSO7oDHkKSNdBk7yiPLt2GKzmfWdJ"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-06542a822d33e2e40"
+  instance_type = "t2.micro"
+}
+
+=================================================
+Method2:
+
+provider "aws" {
+  region     = "us-west-1"
+  access_key = "AKIAWJNUWDSXLFWL7NHY"
+  secret_key = "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"
+}
+resource "aws_instance" "tfvm" {
+  ami = "ami-06542a822d33e2e40"
+  instance_type = "t2.micro"
+  vpc_security_group_ids = [ sg-09be724668b7c6179 ]
+  user_data = <<-EOF
+                #!/bin/bash
+                echo "I LOVE TERRAFORM" > index.html
+                nohup busybox httpd -f -p 8080 &
+                EOF
+    tags = {
+      Name = "WEB-demo"
+    }
+}
+resource "aws_security_group" "launch-wizard-1" {
+  name = "launch-wizard-1"
+  ingress {
+    protocol = "tcp"
+    from_port = 8080
+    to_port = 8080
+    cidr_blocks = [ "0.0.0.0/0" ]
+  }
+}
+output "instance_ips" {
+  value = aws_instance.tfvm.public_ip
+}
+
+
+=============================
+
+sg-09be724668b7c6179
+
+
+launch-wizard-1
+
+
+=================
+
+=======================
+
+
+Access Key ID:
+AKIAWJNUWDSXLFWL7NHY
+Secret Access Key:
+J+t1yiYcPvsUSO7oDHkKSNdBk7yiPLt2GKzmfWdJ
+
+
+=====================================
+
+EC2:
+
+===================
+Method1:
+
+provider "aws" {
+  region     = "us-west-1"
+  access_key = "AKIAWJNUWDSXLFWL7NHY"
+  secret_key = "J+t1yiYcPvsUSO7oDHkKSNdBk7yiPLt2GKzmfWdJ"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-06542a822d33e2e40"
+  instance_type = "t2.micro"
+}
+
+=================================================
+Method2:
+
+provider "aws" {
+  region     = "us-west-1"
+  access_key = "AKIAWJNUWDSXLFWL7NHY"
+  secret_key = "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"
+}
+resource "aws_instance" "tfvm" {
+  ami = "ami-06542a822d33e2e40"
+  instance_type = "t2.micro"
+  vpc_security_group_ids = [ sg-09be724668b7c6179 ]
+  user_data = <<-EOF
+                #!/bin/bash
+                echo "I LOVE TERRAFORM" > index.html
+                nohup busybox httpd -f -p 8080 &
+                EOF
+    tags = {
+      Name = "WEB-demo"
+    }
+}
+resource "aws_security_group" "launch-wizard-1" {
+  name = "launch-wizard-1"
+  ingress {
+    protocol = "tcp"
+    from_port = 8080
+    to_port = 8080
+    cidr_blocks = [ "0.0.0.0/0" ]
+  }
+}
+output "instance_ips" {
+  value = aws_instance.tfvm.public_ip
+}
+
+
+=============================
+
+sg-09be724668b7c6179
+
+
+launch-wizard-1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===================
+
+=======================
+
+
+Access Key ID:
+AKIAWJNUWDSXLFWL7NHY
+Secret Access Key:
+J+t1yiYcPvsUSO7oDHkKSNdBk7yiPLt2GKzmfWdJ
+
+
+=====================================
+
+EC2:
+
+===================
+Method1:
+
+provider "aws" {
+  region     = "us-west-1"
+  access_key = "AKIAWJNUWDSXLFWL7NHY"
+  secret_key = "J+t1yiYcPvsUSO7oDHkKSNdBk7yiPLt2GKzmfWdJ"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-06542a822d33e2e40"
+  instance_type = "t2.micro"
+}
+
+=================================================
+Method2:
+
+provider "aws" {
+  region     = "us-west-1"
+  access_key = "AKIAWJNUWDSXLFWL7NHY"
+  secret_key = "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"
+}
+resource "aws_instance" "tfvm" {
+  ami = "ami-06542a822d33e2e40"
+  instance_type = "t2.micro"
+  vpc_security_group_ids = [ sg-09be724668b7c6179 ]
+  user_data = <<-EOF
+                #!/bin/bash
+                echo "I LOVE TERRAFORM" > index.html
+                nohup busybox httpd -f -p 8080 &
+                EOF
+    tags = {
+      Name = "WEB-demo"
+    }
+}
+resource "aws_security_group" "launch-wizard-1" {
+  name = "launch-wizard-1"
+  ingress {
+    protocol = "tcp"
+    from_port = 8080
+    to_port = 8080
+    cidr_blocks = [ "0.0.0.0/0" ]
+  }
+}
+output "instance_ips" {
+  value = aws_instance.tfvm.public_ip
+}
+
+
+=============================
+
+sg-09be724668b7c6179
+
+
+launch-wizard-1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======================
+
+
+Access Key ID:
+AKIAWJNUWDSXLFWL7NHY
+Secret Access Key:
+J+t1yiYcPvsUSO7oDHkKSNdBk7yiPLt2GKzmfWdJ
+
+
+=====================================
+
+EC2:
+
+===================
+Method1:
+
+provider "aws" {
+  region     = "us-west-1"
+  access_key = "AKIAWJNUWDSXLFWL7NHY"
+  secret_key = "J+t1yiYcPvsUSO7oDHkKSNdBk7yiPLt2GKzmfWdJ"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-06542a822d33e2e40"
+  instance_type = "t2.micro"
+}
+
+=================================================
+Method2:
+
+provider "aws" {
+  region     = "us-west-1"
+  access_key = "AKIAWJNUWDSXLFWL7NHY"
+  secret_key = "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"
+}
+resource "aws_instance" "tfvm" {
+  ami = "ami-06542a822d33e2e40"
+  instance_type = "t2.micro"
+  vpc_security_group_ids = [ sg-09be724668b7c6179 ]
+  user_data = <<-EOF
+                #!/bin/bash
+                echo "I LOVE TERRAFORM" > index.html
+                nohup busybox httpd -f -p 8080 &
+                EOF
+    tags = {
+      Name = "WEB-demo"
+    }
+}
+resource "aws_security_group" "launch-wizard-1" {
+  name = "launch-wizard-1"
+  ingress {
+    protocol = "tcp"
+    from_port = 8080
+    to_port = 8080
+    cidr_blocks = [ "0.0.0.0/0" ]
+  }
+}
+output "instance_ips" {
+  value = aws_instance.tfvm.public_ip
+}
+
+
+=============================
+
+sg-09be724668b7c6179
+
+
+launch-wizard-1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
